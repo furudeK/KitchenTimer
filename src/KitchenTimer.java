@@ -19,6 +19,13 @@ public class KitchenTimer  {
 
         //minをsecに変換します
         sec = sec + min * 60;
+
+        //隠しコマンド（入力された時間がマイナスならドーラ
+        if(sec < 0){
+            System.out.println("そんな時間は存在しないよ。40秒で支度しな！");
+            sec = 40;
+        }
+
         try {
             for (int i = 0; sec > 0; i++) {
                 System.out.println(sec);
