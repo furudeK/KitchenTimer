@@ -35,6 +35,7 @@ public class KitchenTimer  {
         System.out.println("3分間だけ待ってやる by ムスカ大佐\n（※実際は"+inputMins+"分"+inputSecs+"秒待ちます。)");
 
         int countingSecs = inputMins * 60 + inputSecs;
+
         try {
             while (countingSecs > 0) {
                 System.out.println(countingSecs);
