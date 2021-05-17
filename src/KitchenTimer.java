@@ -16,6 +16,7 @@ public class KitchenTimer  {
             try {
                 System.out.println(strMinOrSec+"を0以上の値で入力してください>>");
                 String str = new Scanner(System.in).nextLine();
+
                 num= Integer.parseInt(str);
             } catch (NumberFormatException e) {
                 System.out.println("数字を入力してください");
@@ -32,9 +33,15 @@ public class KitchenTimer  {
         int inputMins = getInput(min);
         String sec = "秒";
         int inputSecs = getInput(sec);
-        System.out.println("3分間だけ待ってやる by ムスカ大佐\n（※実際は"+inputMins+"分"+inputSecs+"秒待ちます。)");
 
         int countingSecs = inputMins * 60 + inputSecs;
+
+        //タイマーの値が40秒ならドーラ、それ以外ならムスカ
+        if(countingSecs == 40){
+            System.out.println("40秒で支度しな！");
+        } else {
+            System.out.println("3分間だけ待ってやる by ムスカ大佐\n（※実際は" + inputMins + "分" + inputSecs + "秒待ちます。)");
+        }
 
         try {
             while (countingSecs > 0) {
