@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /*
 キッチンタイマーのプログラムです。
@@ -9,30 +7,29 @@ import java.util.TimerTask;
 
 
 public class KitchenTimer {
-    //分と秒の入力を受け取り、返すメソッド
+
     public static int getInput(String strMinOrSec) {
         int num = 0;
         do {
             try {
-                System.out.println(strMinOrSec + "を0以上の値で入力してください>>");
+                System.out.print(strMinOrSec + "を0以上の値で入力してください>>");
                 String str = new Scanner(System.in).nextLine();
 
                 num = Integer.parseInt(str);
             } catch (NumberFormatException e) {
                 System.out.println("数字を入力してください");
             }
-        } while ((num < 0)); //マイナスの値が入力された際に、再度入力を促す
+        } while (num < 0); //マイナスの値が入力された際に、再度入力を促す
         return num;
     }
-
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("キッチンタイマーにセットする分と秒を入力してください。");
         Scanner scanner = new Scanner(System.in);
-        String min = "分";
-        int inputMins = getInput(min);
-        String sec = "秒";
-        int inputSecs = getInput(sec);
+        String strMin = "分";
+        int inputMins = getInput(strMin);
+        String strSec = "秒";
+        int inputSecs = getInput(strSec);
 
         int countingSecs = inputMins * 60 + inputSecs;
 
@@ -45,7 +42,8 @@ public class KitchenTimer {
 
         try {
             while (countingSecs > 0) {
-                System.out.println(countingSecs);
+                System.out.print("残り時間：" + countingSecs / 60 + "分" + countingSecs % 60 + "秒");
+                System.out.print("\r"); //残り時間を上書き表示するためにCR文字でカーソルを先頭に移動
                 Thread.sleep(1000);
                 countingSecs--;
             }
