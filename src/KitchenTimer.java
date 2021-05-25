@@ -22,6 +22,7 @@ public class KitchenTimer  {
         try {
             for (int i = 0; sec > 0; i++) {
                 System.out.println(sec);
+                System.out.println("Test");
                 Thread.sleep(1000);
                 sec --;
             }
