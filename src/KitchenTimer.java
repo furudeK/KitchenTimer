@@ -44,6 +44,7 @@ public class KitchenTimer {
             while (countingSecs > 0) {
                 System.out.print("残り時間：" + countingSecs / 60 + "分" + countingSecs % 60 + "秒");
                 System.out.print("\r"); //残り時間を上書き表示するためにCR文字でカーソルを先頭に移動
+                System.out.println("Test");
                 Thread.sleep(1000);
                 countingSecs--;
             }
